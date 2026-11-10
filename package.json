@@ -1,0 +1,33 @@
+{
+  "name": "dsh-font-ja",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness の日本語 Web UI を BIZ UDPゴシックで読みやすくするプラグイン",
+  "type": "module",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "git+https://github.com/heavyfox/dsh-font-ja.git" },
+  "homepage": "https://github.com/heavyfox/dsh-font-ja#readme",
+  "bugs": { "url": "https://github.com/heavyfox/dsh-font-ja/issues" },
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": ["lib", "cordis.patch.yml"],
+  "engines": { "node": "^22.19.0 || >=24.0.0", "dsh": ">=0.2.2-rc.1" },
+  "keywords": ["dsh-plugin", "deepseek-harness", "japanese", "font"],
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": { "platform": "web", "immediately": true, "inject": ["@deepseek-ai/dsh-client-locale"] }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test:e2e": "node tests/web.mjs",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "esbuild": "0.28.2"
+  }
+}

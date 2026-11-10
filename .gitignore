@@ -1,0 +1,7 @@
+node_modules/
+lib/
+test-results/
+*.tgz
+*.log
+.env*
+.npmrc
